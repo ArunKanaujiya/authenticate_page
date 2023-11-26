@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="p-4 m-4">
+            
+            <div class="col-lg-5 mx-auto border rounded card pt-4">
+                <h3 class="alert alert-light border rounded">Create An Acount...</h3>
+            <form method="post" enctype="multipart/form-data" >
+             
+                {% csrf_token %}
+    
+                <!--messages-->
+
+                 {% if messages %}
+                 <div class="alert alert-success" role="alert">
+                <ul class="messages">
+                 {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                </div>
+               {% endif %}
+               <!--end messages-->
+    
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">First Name</label>
+                    <input type="text"  name="firstname" placeholder="Enter Your First Name.." class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+    
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Last Name</label>
+                    <input type="text"  name="lastname"  placeholder="Enter Your Last Name.." class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+    
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">User Name</label>
+                      <input type="email"  name="username" placeholder="example@gmail.com"  class="form-control" id="exampleInputEmail1" >
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" name="password" placeholder="*********" class="form-control" id="exampleInputPassword1">
+                    </div>
+
+                    <div class="col-lg-5 btn-lg mx-auto">
+                    <button type="submit" class="btn btn-primary"  >SignUp</button> </div>
+                    <p style="font-size: larger;">You Have account <u><a href="/login/">Login</a></u></p>
+               
+                 
+            </form>
+        </div>
+        </div>
+    </div>
+    
+</body>
+</html>
